@@ -4,8 +4,8 @@ Plugin Name: WP GitHub Card
 Plugin URI: (プラグインの説明と更新を示すページの URI)
 Description: GitHub Profile Card Plugin (プラグインの短い説明)
 Version: 0.1
-Author: Ryohei Tanaka (GitHub @wellflat)
-Author URI: https://rest-term.com
+Author: Ryohei Tanaka
+Author URI: https://github.com/wellflat
 License: GPL2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 */
@@ -26,8 +26,10 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once(plugin_dir_path(__FILE__) . '/lib/class-wp-github-card.php');
+//require_once(plugin_dir_path(__FILE__) . '/lib/class-wp-github-card.php');
 
-add_action('widgets_init', function() {
-	register_widget('WP_GitHub_Card');
-});
+require_once( plugin_dir_path(__FILE__) . '/vendor/autoload.php' );
+
+/* add_action('widgets_init', function() { */
+/* 	register_widget('WP_GitHub_Card'); */
+/* }); */
