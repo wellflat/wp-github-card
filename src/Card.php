@@ -1,6 +1,11 @@
 <?php
 
-final class WP_GitHub_Card extends WP_Widget {
+namespace WP\GitHub;
+
+/**
+ *
+ */
+final class Card extends \WP_Widget {
 	const API_PATH = 'https://api.github.com';
 	const API_VERSION = 'v3';
 

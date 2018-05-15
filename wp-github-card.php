@@ -31,5 +31,5 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 require_once( plugin_dir_path(__FILE__) . '/vendor/autoload.php' );
 
 /* add_action('widgets_init', function() { */
-/* 	register_widget('WP_GitHub_Card'); */
+/* 	register_widget('WP\GitHub\Card'); */
 /* }); */
