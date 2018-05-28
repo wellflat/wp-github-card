@@ -31,3 +31,15 @@ require_once( plugin_dir_path(__FILE__) . '/vendor/autoload.php' );
 add_action('widgets_init', function() {
 	register_widget('WP\GitHub\Card');
 });
+
+register_activation_hook( __FILE__, function() {
+    // atodekaku
+});
+
+register_deactivation_hook( __FILE__, function() {
+    // atodekaku
+});
+
+register_uninstall_hook( __FILE__, function() {
+    // atodekaku
+});

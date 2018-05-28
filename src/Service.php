@@ -16,7 +16,7 @@ final class Service {
 	public function __construct( $user = null, $token = null ) {
 		$this->user = $user;
 		//$this->token = $token;
-		$this->token = '373f993a7f21031ff5dacbbd8f1162316c6d7200';
+		$this->token = '';
 	}
 
 	public function __get( $name ) {
