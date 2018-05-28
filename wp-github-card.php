@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP GitHub Card
 Plugin URI: (プラグインの説明と更新を示すページの URI)
-Description: GitHub Profile Card Plugin (プラグインの短い説明)
+Description: GitHub simple profile card plugin
 Version: 0.1
 Author: Ryohei Tanaka
 Author URI: https://github.com/wellflat
@@ -26,10 +26,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-//require_once(plugin_dir_path(__FILE__) . '/lib/class-wp-github-card.php');
-
 require_once( plugin_dir_path(__FILE__) . '/vendor/autoload.php' );
 
-/* add_action('widgets_init', function() { */
-/* 	register_widget('WP\GitHub\Card'); */
-/* }); */
+add_action('widgets_init', function() {
+	register_widget('WP\GitHub\Card');
+});
