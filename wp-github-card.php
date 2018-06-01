@@ -32,14 +32,16 @@ add_action('widgets_init', function() {
 	register_widget('WP\GitHub\Card');
 });
 
-register_activation_hook( __FILE__, function() {
-    // atodekaku
-});
+$code = new WP\GitHub\Shortcode( 'wellflat' );
 
-register_deactivation_hook( __FILE__, function() {
-    // atodekaku
-});
+/* register_activation_hook( __FILE__, function() { */
+/*     // atodekaku */
+/* }); */
 
-register_uninstall_hook( __FILE__, function() {
-    // atodekaku
-});
+/* register_deactivation_hook( __FILE__, function() { */
+/*     // atodekaku */
+/* }); */
+
+/* register_uninstall_hook( __FILE__, function() { */
+/*     // atodekaku */
+/* }); */

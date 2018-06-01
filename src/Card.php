@@ -7,7 +7,6 @@ namespace WP\GitHub;
  * @package WP\GitHub;
  */
 final class Card extends \WP_Widget {
-
 	private $renderer;
 	private $service;
 
@@ -34,8 +33,7 @@ final class Card extends \WP_Widget {
 			'after_widget' => $args['after_widget']
 		];
 		$user = $this->service->get_user();
-		print_r($user);
-		$this->renderer->render('card.html', $params );
+		$this->renderer->render( 'widget.html', $params );
 	}
 
 	public function form( $instance ) {

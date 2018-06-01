@@ -16,10 +16,10 @@ final class Renderer {
 		$loader->addPath( plugin_dir_path(__FILE__) . '/../public' );
 		$params = [
 			'cache' => plugin_dir_path(__FILE__) . '/../cache/template',
-			'debug' => true
+			'debug' => true,
+			'auto_reload' => true
 		];
 		$params = [
-			'cache' => null,
 			'debug' => true
 		];
 		$this->twig = new \Twig_Environment( $loader, $params );
@@ -28,5 +28,10 @@ final class Renderer {
 	public function render( $template_file, array $params ) {
 		$template = $this->twig->loadTemplate( $template_file );
 		echo $template->render( $params );
+	}
+
+	public function load( $template_file, array $params ) {
+		$template = $this->twig->loadTemplate( $template_file );
+		return $template->render( $params );
 	}
 }
