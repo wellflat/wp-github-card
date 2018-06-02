@@ -9,9 +9,11 @@ namespace WP\GitHub;
 final class Service {
 	const API_BASE_PATH = 'https://api.github.com';
 	const CACHE_PREFIX = 'wp-github-card-';
-	const CACHE_EXPIRED = 4*HOUR_IN_SECONDS;
+	const CACHE_EXPIRED = 1*HOUR_IN_SECONDS;
 
+	/** @var string */
 	private $user;
+	/** @var string */
 	private $token;
 
 	public function __construct( $user = null, $token = null ) {
@@ -37,8 +39,13 @@ final class Service {
 		//delete_transient( $cache_key );
 		if ( false === ( $user = get_transient( $cache_key )) ) {
 			$response = $this->request( $url );
-			$user = new User( $response );
-			set_transient( $cache_key, $user, self::CACHE_EXPIRED );
+			if ( is_wp_error( $response ) ) {
+				$user = new User();
+				delete_transient( $cache_key );
+			} else {
+				$user = new User( $response );
+				set_transient( $cache_key, $user, self::CACHE_EXPIRED );
+			}
 		}
 		return $user;
 	}
@@ -53,8 +60,13 @@ final class Service {
 		//delete_transient( $cache_key );
 		if ( false === ( $repos = get_transient( $cache_key )) ) {
 			$response = $this->request( $url );
-			$repos = new Repos( $response );
-			set_transient( $cache_key, $repos, self::CACHE_EXPIRED );
+			if ( is_wp_error( $response ) ) {
+				$repos = new Repos();
+				delete_transient( $cache_key );
+			} else {
+				$repos = new Repos( $response );
+				set_transient( $cache_key, $repos, self::CACHE_EXPIRED );
+			}
 		}
 		return $repos;
 	}
@@ -70,21 +82,31 @@ final class Service {
 	}
 
 	/**
+	 * Deletes all transients
+	 */
+	public function delete_transients() {
+		global $wpdb;
+		$sql = "DELETE FROM `wp_options` WHERE `option_name` LIKE '_transient_wp-github-card-%'";
+		//$wpdb->query( $sql );
+	}
+
+	/**
 	 * Requests GitHub API
+	 * @see https://developer.github.com/v3/
 	 */
 	private function request( $url ) {
 		$headers = [ 'Accept' => 'application/vnd.github.v3+json' ];
-		if ( !is_null( $this->token ) ) {
+		if ( ! is_null( $this->token ) ) {
 			$headers['Authorization'] = ' token ' . $this->token;
 		}
 		$args = [ 'headers' => $headers ];
-		try {
-			$response = wp_remote_get( $url, $args );
+		$response = wp_remote_get( $url, $args );
+		if ( is_array( $response ) ) {
 			if ( $response['response']['code'] === 200 ) {
 				return $response['body'];
 			}
-		} catch ( \WP_Error $e ) {
-			print_r($e);
+		} else {
+			return $response; // WP_Error
 		}
 	}
 }

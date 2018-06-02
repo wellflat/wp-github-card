@@ -28,20 +28,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 require_once( plugin_dir_path(__FILE__) . '/vendor/autoload.php' );
 
-add_action('widgets_init', function() {
-	register_widget('WP\GitHub\Card');
-});
-
-$code = new WP\GitHub\Shortcode( 'wellflat' );
-
-/* register_activation_hook( __FILE__, function() { */
-/*     // atodekaku */
-/* }); */
+$code = new WP\GitHub\Shortcode();
 
 /* register_deactivation_hook( __FILE__, function() { */
-/*     // atodekaku */
+/*     $code->delete_cache(); */
 /* }); */
 
 /* register_uninstall_hook( __FILE__, function() { */
-/*     // atodekaku */
+/*     $code->delete_cache(); */
 /* }); */

@@ -15,13 +15,13 @@ final class Renderer {
 		$loader = new \Twig_Loader_Filesystem();
 		$loader->addPath( plugin_dir_path(__FILE__) . '/../public' );
 		$params = [
-			'cache' => plugin_dir_path(__FILE__) . '/../cache/template',
+			'cache' => plugin_dir_path(__FILE__) . '/../public/cache',
 			'debug' => true,
 			'auto_reload' => true
 		];
-		$params = [
-			'debug' => true
-		];
+		/* $params = [ */
+		/* 	'debug' => true */
+		/* ]; */
 		$this->twig = new \Twig_Environment( $loader, $params );
 	}
 

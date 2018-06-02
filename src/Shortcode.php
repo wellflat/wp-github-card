@@ -18,7 +18,12 @@ final class Shortcode {
 	}
 
 	public function handler( $atts ) {
-		$params = shortcode_atts( [ 'user' => '', 'token' => '' ], $atts );
+		$defaults = [
+			'user' => null,
+			'token' => null,
+			'cache' => 1
+		];
+		$params = shortcode_atts( $defaults, $atts );
 		$this->service->user = $params['user'];
 		$this->service->token = $params['token'];
 		$user = $this->service->get_user();
@@ -26,5 +31,9 @@ final class Shortcode {
 		$params = array_merge( $params, (array)$user );
 		$params = array_merge( $params, (array)$repos );
 		return $this->renderer->load( 'card.html', $params );
+	}
+
+	public function delete_cache() {
+		$this->service->delete_transients();
 	}
 }
