@@ -26,14 +26,14 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-require_once( plugin_dir_path(__FILE__) . '/vendor/autoload.php' );
+require_once( plugin_dir_path( __FILE__ ) . '/vendor/autoload.php' );
 
 $code = new WP\GitHub\Shortcode();
 
-/* register_deactivation_hook( __FILE__, function() { */
+/* register_activation_hook( __FILE__, function() use ( $code ) { */
 /*     $code->delete_cache(); */
 /* }); */
 
-/* register_uninstall_hook( __FILE__, function() { */
-/*     $code->delete_cache(); */
-/* }); */
+register_deactivation_hook( __FILE__, function() use ( $code ) {
+    $code->delete_cache();
+});

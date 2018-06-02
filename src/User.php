@@ -13,16 +13,15 @@ final class User {
 	public $public_repos = 0;
 	public $public_gists = 0;
 	public $followers = 0;
+	public $cache_ready = false;
 
-	public function __construct( $data ) {
-		if ( ! is_null( $data ) ) {
-			$json = json_decode( $data );
-			$this->login = $json->login;
-			$this->avatar = $json->avatar_url;
-			$this->name = $json->name;
-			$this->public_repos = $json->public_repos;
-			$this->public_gists = $json->public_gists;
-			$this->followers = $json->followers;
-		}
+	public function __construct( object $data ) {
+		$this->login = $data->login;
+		$this->avatar = $data->avatar_url;
+		$this->name = $data->name;
+		$this->public_repos = $data->public_repos;
+		$this->public_gists = $data->public_gists;
+		$this->followers = $data->followers;
+		$this->cache_ready = true;
 	}
 }

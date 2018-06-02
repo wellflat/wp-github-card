@@ -12,26 +12,23 @@ final class Repos {
 	public $stargazers = 0;
 	public $recently_acitive_repo = '';
 
-	public function __construct( $data ) {
-		if ( ! is_null( $data ) ) {
-			$this->repos = [];
-			$json = json_decode( $data );
-			foreach ( $json as $repo ) {
-				$this->repos[] = [
-					'name' => $repo->name,
-					'stargazers' => $repo->stargazers_count,
-					'language' => $repo->language
-				];
-			}
-			foreach ( $this->repos as $repo ) {
-				$stargazers[] = $repo['stargazers'];
-			}
-			array_multisort( $stargazers, SORT_DESC, $this->repos );
-			$this->languages = array_unique( array_column( $this->repos, 'language' ) );
-			$this->languages = array_slice( $this->languages, 0, 3 );
-			$this->stargazers = $this->sum_stargazers();
-			$this->recently_active_repo = $this->repos[0]['name'];
+	public function __construct( array $data ) {
+		$this->repos = [];
+		foreach ( $data as $repo ) {
+			$this->repos[] = [
+				'name' => $repo->name,
+				'stargazers' => $repo->stargazers_count,
+				'language' => $repo->language
+			];
 		}
+		foreach ( $this->repos as $repo ) {
+			$stargazers[] = $repo['stargazers'];
+		}
+		array_multisort( $stargazers, SORT_DESC, $this->repos );
+		$this->languages = array_unique( array_column( $this->repos, 'language' ) );
+		$this->languages = array_slice( $this->languages, 0, 3 );
+		$this->stargazers = $this->sum_stargazers();
+		$this->recently_active_repo = $this->repos[0]['name'];
 	}
 
 	private function sum_stargazers() {
