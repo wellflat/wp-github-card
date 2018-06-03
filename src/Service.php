@@ -3,8 +3,10 @@
 namespace WP\GitHub;
 
 /**
- * Class Service
- * @package WP\GitHub;
+ * Class WP\GitHub\Service
+ * GitHub API client
+ * @package WP_GitHub_Card 
+ * @since 1.0.0
  */
 final class Service {
 	const API_BASE_PATH = 'https://api.github.com';
@@ -30,8 +32,9 @@ final class Service {
 	}
 
 	/**
-	 * Provides publicly available information about someone with a GitHub account
-	 * @see https://developer.github.com/v3/users/#get-a-single-user
+	 * provides publicly available information about someone with a GitHub account
+	 * @return WP\GitHub\User
+	 * @link https://developer.github.com/v3/users/#get-a-single-user
 	 */
 	public function get_user() {
 		$url = self::API_BASE_PATH . '/users/' . $this->user;
@@ -49,8 +52,9 @@ final class Service {
 	}
 
 	/**
-	 * Lists public repositories for the specified user
-	 * @see https://developer.github.com/v3/repos/#list-user-repositories
+	 * lists public repositories for the specified user
+	 * @return WP\GitHub\Repos
+	 * @link https://developer.github.com/v3/repos/#list-user-repositories
 	 */
 	public function get_repos() {
 		$url = self::API_BASE_PATH . '/users/' . $this->user . '/repos?sort=pushed';
@@ -68,17 +72,8 @@ final class Service {
 	}
 
 	/**
-	 * Lists languages for the specified repository
-	 * @see https://developer.github.com/v3/repos/#list-languages
-	 */
-	public function get_languages( $repo ) {
-		$url = self::API_BASE_PATH . '/repos/' . $this->user . '/' . $repo . '/languages';
-		$cache_key = self::CACHE_PREFIX . 'languages-' . $this->user;
-		return $this->request( $url );
-	}
-
-	/**
-	 * Deletes all transients
+	 * deletes all transient
+	 * @global object $wpdb
 	 */
 	public function delete_transients() {
 		global $wpdb;
@@ -87,8 +82,11 @@ final class Service {
 	}
 
 	/**
-	 * Requests GitHub API
-	 * @see https://developer.github.com/v3/
+	 * requests GitHub API
+	 * @access private
+	 * @param string $url entry point
+	 * @return object|WP_Error
+	 * @link https://developer.github.com/v3/
 	 */
 	private function request( $url ) {
 		$headers = [ 'Accept' => 'application/vnd.github.v3+json' ];

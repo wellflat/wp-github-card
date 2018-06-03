@@ -3,8 +3,11 @@
 namespace WP\GitHub;
 
 /**
- * Class Renderer
- * @package WP\GitHub;
+ * Class WP\GitHub\Renderer
+ * html renderer
+ * @package WP_GitHub_Card 
+ * @since 1.0.0
+ * @link https://twig.symfony.com/
  */
 final class Renderer {
 
@@ -19,18 +22,15 @@ final class Renderer {
 			'debug' => true,
 			'auto_reload' => true
 		];
-		/* $params = [ */
-		/* 	'debug' => true */
-		/* ]; */
 		$this->twig = new \Twig_Environment( $loader, $params );
 	}
 
+	/**
+	 * render template
+	 * @param string $template_file
+	 * @param array $params
+	 */
 	public function render( $template_file, array $params ) {
-		$template = $this->twig->loadTemplate( $template_file );
-		echo $template->render( $params );
-	}
-
-	public function load( $template_file, array $params ) {
 		$template = $this->twig->loadTemplate( $template_file );
 		return $template->render( $params );
 	}
