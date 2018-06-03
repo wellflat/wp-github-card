@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: WP GitHub Card
-Plugin URI: (プラグインの説明と更新を示すページの URI)
+Plugin URI: https://github.com/wellflat/wp-github-card
 Description: GitHub simple profile card plugin
-Version: 0.1
+Version: 1.0.0
 Author: Ryohei Tanaka
 Author URI: https://github.com/wellflat
 License: GPL2 or later
@@ -29,10 +29,6 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 require_once( plugin_dir_path( __FILE__ ) . '/vendor/autoload.php' );
 
 $code = new WP\GitHub\Shortcode();
-
-/* register_activation_hook( __FILE__, function() use ( $code ) { */
-/*     $code->delete_cache(); */
-/* }); */
 
 register_deactivation_hook( __FILE__, function() use ( $code ) {
     $code->delete_cache();

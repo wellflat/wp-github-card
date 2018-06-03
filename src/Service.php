@@ -11,7 +11,7 @@ namespace WP\GitHub;
 final class Service {
 	const API_BASE_PATH = 'https://api.github.com';
 	const CACHE_PREFIX = 'wp-github-card-';
-	const CACHE_EXPIRED = 1*HOUR_IN_SECONDS;
+	const CACHE_EXPIRED = 4*HOUR_IN_SECONDS;
 
 	/** @var string */
 	private $user;
@@ -77,7 +77,7 @@ final class Service {
 	 */
 	public function delete_transients() {
 		global $wpdb;
-		$sql = "DELETE FROM `wp_options` WHERE `option_name` LIKE '_transient_wp-github-card-%'";
+		$sql = "DELETE FROM `{$wpdb->prefix}options` WHERE `option_name` LIKE '_transient_wp-github-card-%'";
 		$wpdb->query( $sql );
 	}
 
