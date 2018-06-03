@@ -1,5 +1,11 @@
+#github-card {
+    width: 220px;
+    border: 1px solid #eee;
+}
+
 #user-avatar {
     float: left;
+    padding: 2px;
 }
 #user-avatar .avatar {
     border: 1px solid #ddd;
@@ -7,7 +13,7 @@
     width: 24px;
 }
 #user-overview {
-    margin-left: 36px;
+    margin: -20px 0 0 36px;
 }
 #user-overview h1 a {
     font-size: 13px;
@@ -19,6 +25,7 @@
 #user-overview p {
     color: #666;
     font: italic normal 10px arial, sans-serif;
+    margin: 2px;
 }
 #user-overview p a {
     color: #333;
@@ -40,15 +47,16 @@
 }
 #user-info p {
     font-size: 11px;
+    margin: 2px;
 }
 #list-user-info {
-    margin: 7px 0 3px 0;
+    margin: 0;
+    padding: 0 0 0 15px;
 }
 #list-user-info li {
     border-right: 1px solid #ccc;
     display: inline-block;
     _display: inline; /* IE fix */
-    margin-right: 5px;
     padding-right: 5px;
 }
 #list-user-info li p {
@@ -65,5 +73,6 @@
 #list-user-info li.last {
     border-right: 0;
     margin-right: 0;
+    margin-left: 0;
     padding-right: 0;
 }

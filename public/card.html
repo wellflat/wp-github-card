@@ -1,21 +1,20 @@
-<!-- <style> -->
-<!--   {{ include("style.css") }} -->
-<!-- </style> -->
-<div id="user-avatar">
-  <a href="https://github.com/{{ login }}" target="_parent">
-    <img alt="{{ login }}" class="avatar" src="{{ avatar }}">
-  </a>
-</div>
-<div id="user-overview"><h1><a href="https://github.com/{{ login }}" target="_parent" title="{{ name }}">{{ login }}</a></h1>
-  <p>Worked on <a href="https://github.com/wellflat/{{ recently_active_repo }}" target="_parent" title="{{ recently_active_repo }}">{{ recently_active_repo }}</a> recently.</p>
-</div>
-<div id="user-content">
-  <div id="octocat">
-    <div id="user-info"><p>{% for l in languages %}{{ l }}, {% endfor %} &hellip;</p>
-      <ul class="clear" id="list-user-info">
-        <li><p><strong>{{ public_repos }}</strong><span> repos</span></p><p><strong>{{ public_gists }}</strong><span> gists</span></p></li>
-        <li class="last"><p><strong title="{{ followers }}">{{ followers }}</strong><span> followers</span></p><p><strong title="{{ stargazers }}">{{ stargazers }}</strong><span> stargazers</span></p></li>
-      </ul>
+<div id="github-card">
+  <div id="user-avatar">
+    <a href="https://github.com/{{ login }}" target="_parent">
+      <img alt="{{ login }}" class="avatar" src="{{ avatar }}">
+    </a>
+  </div>
+  <div id="user-overview"><h1><a href="https://github.com/{{ login }}" target="_parent" title="{{ name }}">{{ login }}</a></h1>
+    <p>Worked on <a href="https://github.com/wellflat/{{ recently_active_repo }}" target="_parent" title="{{ recently_active_repo }}">{{ recently_active_repo }}</a> recently.</p>
+  </div>
+  <div id="user-content">
+    <div id="octocat">
+      <div id="user-info"><p>{% for l in languages %}{{ l }}, {% endfor %} &hellip;</p>
+        <ul class="clear" id="list-user-info">
+          <li><p><strong>{{ public_repos }}</strong><span> repos</span></p><p><strong>{{ public_gists }}</strong><span> gists</span></p></li>
+          <li class="last"><p><strong title="{{ followers }}">{{ followers }}</strong><span> followers</span></p><p><strong title="{{ stargazers }}">{{ stargazers }}</strong><span> stargazers</span></p></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
