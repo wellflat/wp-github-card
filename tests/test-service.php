@@ -16,21 +16,16 @@ class ServiceTest extends WP_UnitTestCase {
 	}
 
 	function test_get_user() {
-		/* $service_stub = $this->createMock(WP\GitHub\Service::class); */
-		/* $ret = new WP\GitHub\User(); */
-		/* $service_stub->method('get_user')->willReturn($ret); */
-		/* $user = $service_stub->get_user(); */
-		/* $this->assertEquals('', $user->login); */
-		/* $this->assertEquals('', $user->avatar); */
-		/* $this->assertEquals('', $user->name); */
-		/* $this->assertEquals(0, $user->public_repos); */
-		/* $this->assertEquals(0, $user->public_gists); */
-		/* $this->assertEquals(0, $user->followers); */
+		$user = new WP\GitHub\User();
+		$service = Mockery::mock(new WP\GitHub\Service);
+		$service->shouldReceive('get_user')->andReturn($user);
+		$this->assertEquals($user, $service->get_user());
 	}
 
 	function test_get_repos() {
-	}
-
-	function test_delete_transients() {
+		$repos = new WP\GitHub\Repos();
+		$service = Mockery::mock(new WP\GitHub\Service);
+		$service->shouldReceive('get_repos')->andReturn($repos);
+		$this->assertEquals($repos, $service->get_repos());
 	}
 }

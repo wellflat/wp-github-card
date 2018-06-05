@@ -13,12 +13,14 @@ final class Renderer {
 
 	/** @var \Twig_Environment */
 	private $twig;
+	/** @var string */
+	private $base_dir;
 
 	public function __construct() {
+		$this->base_dir = plugin_dir_path(__FILE__) . '/../public';
 		$loader = new \Twig_Loader_Filesystem();
-		$loader->addPath( plugin_dir_path(__FILE__) . '/../public' );
+		$loader->addPath( $this->base_dir );
 		$params = [
-			'cache' => plugin_dir_path(__FILE__) . '/../public/cache',
 			'debug' => false,
 			'auto_reload' => true
 		];
@@ -36,12 +38,21 @@ final class Renderer {
 	}
 
 	/**
+	 * creates template cache directory
+	 */
+	public function prepare_template_cache() {
+        $cache_dir = $this->base_dir . '/cache';
+		$this->twig->setCache( $cache_dir );
+	}
+
+	/**
 	 * deletes template cache directory
 	 * @global object $wp_filesystem
 	 */
 	public function delete_template_cache() {
+		$this->twig->setCache( false );
 		if( WP_Filesystem() ) {
-			$cache_dir = plugin_dir_path(__FILE__) . '/../public/cache';
+			$cache_dir = $this->base_dir . '/cache';
 			global $wp_filesystem;
 			$wp_filesystem->rmdir( $cache_dir, true );
 		}

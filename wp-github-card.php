@@ -29,7 +29,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 require_once( plugin_dir_path( __FILE__ ) . '/vendor/autoload.php' );
 
 $code = new WP\GitHub\Shortcode();
+$code->prepare_cache();
 
 register_deactivation_hook( __FILE__, function() use ( $code ) {
-    $code->delete_cache();
+	$code->delete_cache();
 });

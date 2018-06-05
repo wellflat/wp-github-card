@@ -54,6 +54,13 @@ final class Shortcode {
 	}
 
 	/**
+	 * prepares template cache
+	 */
+	public function prepare_cache() {
+		$this->renderer->prepare_template_cache();
+	}
+
+	/**
 	 * deletes transients and template cache
 	 */
 	public function delete_cache() {
