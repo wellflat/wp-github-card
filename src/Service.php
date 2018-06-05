@@ -14,9 +14,9 @@ final class Service {
 	const CACHE_EXPIRED = 4*HOUR_IN_SECONDS;
 
 	/** @var string */
-	private $user;
+	private $user = null;
 	/** @var string */
-	private $token;
+	private $token = null;
 
 	public function __construct( $user = null, $token = null ) {
 		$this->user = $user;

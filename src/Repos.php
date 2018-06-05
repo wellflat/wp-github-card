@@ -16,25 +16,27 @@ final class Repos {
 	/** @var int */
 	public $stargazers = 0;
 	/** @var string */
-	public $recently_acitive_repo = '';
+	public $recently_active_repo = '';
 
-	public function __construct( array $data ) {
-		$this->repos = [];
-		foreach ( $data as $repo ) {
-			$this->repos[] = [
-				'name' => $repo->name,
-				'stargazers' => $repo->stargazers_count,
-				'language' => $repo->language
-			];
+	public function __construct( array $data = null ) {
+		if (! is_null( $data ) ) {
+			$this->repos = [];
+			foreach ( $data as $repo ) {
+				$this->repos[] = [
+					'name' => $repo->name,
+					'stargazers' => $repo->stargazers_count,
+					'language' => $repo->language
+				];
+			}
+			foreach ( $this->repos as $repo ) {
+				$stargazers[] = $repo['stargazers'];
+			}
+			$this->recently_active_repo = $data[0]->name;
+			array_multisort( $stargazers, SORT_DESC, $this->repos );
+			$this->languages = array_unique( array_column( $this->repos, 'language' ) );
+			$this->languages = array_slice( $this->languages, 0, 3 );
+			$this->stargazers = $this->count_stargazers();
 		}
-		foreach ( $this->repos as $repo ) {
-			$stargazers[] = $repo['stargazers'];
-		}
-		$this->recently_active_repo = $data[0]->name;
-		array_multisort( $stargazers, SORT_DESC, $this->repos );
-		$this->languages = array_unique( array_column( $this->repos, 'language' ) );
-		$this->languages = array_slice( $this->languages, 0, 3 );
-		$this->stargazers = $this->count_stargazers();
 	}
 
 	/**

@@ -30,8 +30,7 @@ final class Shortcode {
 	public function handler( array $atts ) {
 		$defaults = [
 			'user' => null,
-			'token' => null,
-			'cache' => 1
+			'token' => null
 		];
 		$params = shortcode_atts( $defaults, $atts );
 		$this->service->user = $params['user'];
@@ -55,9 +54,10 @@ final class Shortcode {
 	}
 
 	/**
-	 * deletes all transient in this plugin
+	 * deletes transients and template cache
 	 */
 	public function delete_cache() {
 		$this->service->delete_transients();
+		$this->renderer->delete_template_cache();
 	}
 }
