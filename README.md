@@ -1,4 +1,4 @@
-=== WP GitHub Card ===
+## WP GitHub Card
 Contributors: wellflat
 Donate link:
 Tags: github, shortcode
@@ -11,7 +11,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides simple GitHub profile summary card.
 
-== Description ==
+### Description
 This is a plugin which gives you a small card to show your GitHub user profile summary. You just have to put shortcode.
 
 **Features include:**
@@ -25,15 +25,15 @@ This is a plugin which gives you a small card to show your GitHub user profile s
 **Notice:**
 This plugin caches GitHub user profile data into the database (expires 4 hours).
 
-== Installation ==
+### Installation
 1. Install "WP GitHub Card" via the WordPress.org plugin directory or uploading the files to your server.
 2. Activate the plugin.
 2. Put shortcode '[github-card user={GitHub account name}]' in your page.
 
-== Screenshots ==
+### Screenshots
 1. GitHub profile card screenshot
 
-== Changelog ==
+### Changelog
 
 = 1.0.0 =
 * Initial working version.
