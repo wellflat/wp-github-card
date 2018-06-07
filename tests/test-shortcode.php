@@ -25,10 +25,4 @@ class ShortcodeTest extends WP_UnitTestCase {
 		$code->shouldReceive('handler')->with($params)->andReturn($template);
 		$this->assertEquals($template, $code->handler($params));
 	}
-
-	function test_do_shortcode() {
-		$shortcode = "[github-card user='wellflat']";
-		//$ret = do_shortcode($shortcode);
-		//$this->assertEquals('a', $ret);
-	}
 }
