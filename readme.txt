@@ -28,10 +28,11 @@ This plugin caches GitHub user profile data into the database (expires 4 hours).
 == Installation ==
 1. Install "WP GitHub Card" via the WordPress.org plugin directory or uploading the files to your server.
 2. Activate the plugin.
-2. Put shortcode '[github-card user={GitHub account name}]' in your page.
+3. Put shortcode '[github-card user={GitHub account name}]' in your page.
 
 == Screenshots ==
 1. GitHub profile card screenshot
+2. usage
 
 == Changelog ==
 
