@@ -11,6 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides simple GitHub profile summary card.
 
+* [WP GitHub Card &mdash; WordPress Plugins](https://wordpress.org/plugins/wp-github-card/)
+
 ### Description
 This is a plugin which gives you a small card to show your GitHub user profile summary. You just have to put shortcode.
 
