@@ -5,7 +5,7 @@ Tags: github, shortcode
 Requires at least: 4.9.6  
 Tested up to: 4.9.6  
 Requires PHP: 5.6+  
-Stable tag: 1.0.0  
+Stable tag: 1.0.1  
 License: GPLv2 or later  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -38,5 +38,10 @@ This plugin caches GitHub user profile data into the database (expires 4 hours).
 
 ### Changelog
 
-= 1.0.0 =
+= 1.0.1 =  
+
+* bugfix  
+
+= 1.0.0 =  
+
 * Initial working version.
