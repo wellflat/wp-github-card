@@ -3,7 +3,7 @@ Contributors: wellflat
 Donate link:
 Tags: github, shortcode
 Requires at least: 4.9.6
-Tested up to: 4.9.6
+Tested up to: 5.0.1
 Requires PHP: 5.6+
 Stable tag: 1.0.1
 License: GPLv2 or later
