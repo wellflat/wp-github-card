@@ -1,13 +1,13 @@
 ## WP GitHub Card  [![Build Status](https://travis-ci.org/wellflat/wp-github-card.svg?branch=master)](https://travis-ci.org/wellflat/wp-github-card)  
-Contributors: wellflat  
-Donate link:  
-Tags: github, shortcode  
-Requires at least: 4.9.6  
-Tested up to: 5.2.0  
-Requires PHP: 5.6+  
-Stable tag: 1.0.1  
-License: GPLv2 or later  
-License URI: http://www.gnu.org/licenses/gpl-2.0.html  
+Contributors: wellflat
+Donate link:
+Tags: github, shortcode
+Requires at least: 4.9.6
+Tested up to: 5.4.1
+Requires PHP: 5.6+
+Stable tag: 1.0.1
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides simple GitHub profile summary card.
 
@@ -38,10 +38,10 @@ This plugin caches GitHub user profile data into the database (expires 4 hours).
 
 ### Changelog
 
-= 1.0.1 =  
+= 1.0.1 =
 
-* bugfix  
+* bugfix 
 
-= 1.0.0 =  
+= 1.0.0 =
 
 * Initial working version.
