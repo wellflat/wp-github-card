@@ -11,9 +11,9 @@ final class Shortcode {
 	const CODE = 'github-card';
 
 	/** @var WP\GitHub\Renderer */
-	private $renderer;
+	private Renderer $renderer;
 	/** @var WP\GitHub\Service */
-	private $service;
+	private Service $service;
 
 	public function __construct() {
 		$this->renderer = new Renderer();
@@ -27,7 +27,7 @@ final class Shortcode {
 	 * @param array $atts attributes in shortcode tag
 	 * @return string
 	 */
-	public function handler( array $atts ) {
+	public function handler( array $atts ): string {
 		$defaults = [
 			'user' => null,
 			'token' => null
@@ -45,7 +45,7 @@ final class Shortcode {
 	/**
 	 * enqueues style sheet
 	 */
-	public function add_style() {
+	public function add_style(): void {
 		wp_register_style(
 			'github-card-style',
 			plugin_dir_url(__FILE__) . '../public/style.css'
@@ -56,14 +56,14 @@ final class Shortcode {
 	/**
 	 * prepares template cache
 	 */
-	public function prepare_cache() {
+	public function prepare_cache(): void {
 		$this->renderer->prepare_template_cache();
 	}
 
 	/**
 	 * deletes transients and template cache
 	 */
-	public function delete_cache() {
+	public function delete_cache(): void {
 		$this->service->delete_transients();
 		$this->renderer->delete_template_cache();
 	}

@@ -10,17 +10,17 @@ namespace WP\GitHub;
  */
 final class User {
 	/** @var string */
-	public $login = '';
+	public string $login = '';
 	/** @var string */
-	public $avatar = '';
+	public string $avatar = '';
 	/** @var string */
-	public $name = '';
+	public string $name = '';
 	/** @var int */
-	public $public_repos = 0;
+	public int $public_repos = 0;
 	/** @var int */
-	public $public_gists = 0;
+	public int $public_gists = 0;
 	/** @var int */
-	public $followers = 0;
+	public int $followers = 0;
 
 	public function __construct( \stdClass $data = null ) {
 		if ( ! is_null( $data ) ) {
@@ -42,7 +42,7 @@ final class User {
 	 * @param stdClass $data
 	 * @return bool
 	 */
-	private function check_properties( \stdClass $data ) {
+	private function check_properties( \stdClass $data ): bool {
 		$properties = [
 			'login', 'avatar_url', 'name', 'public_repos', 'public_gists', 'followers'
 		];

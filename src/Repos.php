@@ -10,13 +10,13 @@ namespace WP\GitHub;
  */
 final class Repos {
 	/** @var array */
-	private $repos = [];
+	private array $repos = [];
 	/** @var array */
-	public $languages = [];
+	public array $languages = [];
 	/** @var int */
-	public $stargazers = 0;
+	public int $stargazers = 0;
 	/** @var string */
-	public $recently_active_repo = '';
+	public string $recently_active_repo = '';
 
 	public function __construct( array $data = null ) {
 		if (! is_null( $data ) ) {
@@ -44,7 +44,7 @@ final class Repos {
 	 * @access private
 	 * @return int
 	 */
-	private function count_stargazers() {
+	private function count_stargazers(): int {
 		return array_reduce( $this->repos, function($c, $i) {
 			return $c + $i['stargazers'];
 		}, 0);

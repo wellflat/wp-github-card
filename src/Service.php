@@ -9,16 +9,16 @@ namespace WP\GitHub;
  * @since 1.0.0
  */
 final class Service {
-	const API_BASE_PATH = 'https://api.github.com';
-	const CACHE_PREFIX = 'wp-github-card-';
-	const CACHE_EXPIRED = 4*HOUR_IN_SECONDS;
+	private const API_BASE_PATH = 'https://api.github.com';
+	private const CACHE_PREFIX = 'wp-github-card-';
+	private const CACHE_EXPIRED = 4*HOUR_IN_SECONDS;
 
 	/** @var string */
-	private $user = null;
+	private ?string $user = null;
 	/** @var string */
-	private $token = null;
+	private ?string $token = null;
 
-	public function __construct( $user = null, $token = null ) {
+	public function __construct( ?string $user = null, ?string $token = null ) {
 		$this->user = $user;
 		$this->token = $token;
 	}
@@ -36,7 +36,7 @@ final class Service {
 	 * @return WP\GitHub\User
 	 * @link https://developer.github.com/v3/users/#get-a-single-user
 	 */
-	public function get_user() {
+	public function get_user(): User {
 		$url = self::API_BASE_PATH . '/users/' . $this->user;
 		$cache_key = self::CACHE_PREFIX . 'user-' . $this->user;
 		if ( false === ( $user = get_transient( $cache_key )) ) {
@@ -56,7 +56,7 @@ final class Service {
 	 * @return WP\GitHub\Repos
 	 * @link https://developer.github.com/v3/repos/#list-user-repositories
 	 */
-	public function get_repos() {
+	public function get_repos(): Repos {
 		$url = self::API_BASE_PATH . '/users/' . $this->user . '/repos?sort=pushed';
 		$cache_key = self::CACHE_PREFIX . 'repos-' . $this->user;
 		if ( false === ( $repos = get_transient( $cache_key )) ) {
@@ -75,7 +75,7 @@ final class Service {
 	 * deletes all transient
 	 * @global object $wpdb
 	 */
-	public function delete_transients() {
+	public function delete_transients(): void {
 		global $wpdb;
 		$sql = "DELETE FROM `{$wpdb->prefix}options` WHERE `option_name` LIKE '_transient_wp-github-card-%'";
 		$wpdb->query( $sql );
@@ -88,7 +88,7 @@ final class Service {
 	 * @return object|WP_Error
 	 * @link https://developer.github.com/v3/
 	 */
-	private function request( $url ) {
+	private function request( string $url ) {
 		$headers = [ 'Accept' => 'application/vnd.github.v3+json' ];
 		if ( ! is_null( $this->token ) ) {
 			$headers['Authorization'] = ' token ' . $this->token;

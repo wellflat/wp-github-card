@@ -5,16 +5,16 @@ namespace WP\GitHub;
 /**
  * Class WP\GitHub\Renderer
  * html renderer
- * @package WP_GitHub_Card 
+ * @package WP_GitHub_Card
  * @since 1.0.0
  * @link https://twig.symfony.com/
  */
 final class Renderer {
 
 	/** @var \Twig_Environment */
-	private $twig;
+	private \Twig_Environment $twig;
 	/** @var string */
-	private $base_dir;
+	private string $base_dir;
 
 	public function __construct() {
 		$this->base_dir = plugin_dir_path(__FILE__) . '/../public';
@@ -31,8 +31,9 @@ final class Renderer {
 	 * render template
 	 * @param string $template_file
 	 * @param array $params
+	 * @return string
 	 */
-	public function render( $template_file, array $params ) {
+	public function render( string $template_file, array $params ): string {
 		$template = $this->twig->loadTemplate( $template_file );
 		return $template->render( $params );
 	}
@@ -40,8 +41,8 @@ final class Renderer {
 	/**
 	 * creates template cache directory
 	 */
-	public function prepare_template_cache() {
-        $cache_dir = $this->base_dir . '/cache';
+	public function prepare_template_cache(): void {
+		$cache_dir = $this->base_dir . '/cache';
 		$this->twig->setCache( $cache_dir );
 	}
 
@@ -49,7 +50,7 @@ final class Renderer {
 	 * deletes template cache directory
 	 * @global object $wp_filesystem
 	 */
-	public function delete_template_cache() {
+	public function delete_template_cache(): void {
 		$this->twig->setCache( false );
 		if( WP_Filesystem() ) {
 			$cache_dir = $this->base_dir . '/cache';
