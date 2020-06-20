@@ -3,7 +3,7 @@
 Plugin Name: WP GitHub Card
 Plugin URI: https://github.com/wellflat/wp-github-card
 Description: GitHub simple profile card plugin
-Version: 1.0.1
+Version: 2.0.0
 Author: Ryohei Tanaka
 Author URI: https://github.com/wellflat
 License: GPL2 or later
