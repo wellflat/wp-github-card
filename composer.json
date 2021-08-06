@@ -5,7 +5,7 @@
     "type": "wordpress-plugin",
     "license": "GPLv2 or later",
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "twig/twig": "^2.0"
     },
     "autoload": {

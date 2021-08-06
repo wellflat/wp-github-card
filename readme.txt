@@ -3,9 +3,9 @@ Contributors: wellflat
 Donate link:
 Tags: github, shortcode
 Requires at least: 4.9.6
-Tested up to: 5.4.2
-Requires PHP: 7.3+
-Stable tag: 2.0.0
+Tested up to: 5.8
+Requires PHP: 7.4+
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,8 @@ This plugin caches GitHub user profile data into the database (expires 4 hours).
 
 == Changelog ==
 
+= 2.0.1 =
+* required php7.4 or later
 = 2.0.0 =
 * required php7.3 or later, end of support php5
 = 1.0.1 =
