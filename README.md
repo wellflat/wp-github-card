@@ -1,4 +1,7 @@
 ## WP GitHub Card  [![Build Status](https://travis-ci.org/wellflat/wp-github-card.svg?branch=master)](https://travis-ci.org/wellflat/wp-github-card)
+
+![screenshot](https://ps.w.org/wp-github-card/trunk/screenshot-1.png)	
+
 Contributors: wellflat  
 Donate link:  
 Tags: github, shortcode  
