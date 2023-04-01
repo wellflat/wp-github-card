@@ -6,7 +6,7 @@ Contributors: wellflat
 Donate link:  
 Tags: github, shortcode  
 Requires at least: 4.9.6  
-Tested up to: 6.2 
+Tested up to: 6.2  
 Requires PHP: 7.4+  
 Stable tag: 2.2.0  
 License: GPLv2  
