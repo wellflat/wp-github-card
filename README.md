@@ -6,10 +6,10 @@ Contributors: wellflat
 Donate link:  
 Tags: github, shortcode  
 Requires at least: 4.9.6  
-Tested up to: 5.8  
+Tested up to: 6.2 
 Requires PHP: 7.4+  
-Stable tag: 2.1.0  
-License: GPLv2 or later  
+Stable tag: 2.2.0  
+License: GPLv2  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
 This plugin provides simple GitHub profile summary card.
@@ -40,6 +40,9 @@ This plugin caches GitHub user profile data into the database (expires 4 hours).
 2. usage
 
 ### Changelog
+= 2.2.0 =
+* tested php8.0, 8.2
+
 = 2.1.0 =
 * required php7.4 or later, added typed properties
 
