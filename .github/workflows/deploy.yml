@@ -11,7 +11,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Setup WP
-        run: ./bin/install-wp-tests.sh
+        run: bash ./bin/install-wp-tests.sh wordpress_test root '' localhost 5.8
         shell: bash
       - name: Checkout Repository
         uses: actions/checkout@v2
