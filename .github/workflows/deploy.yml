@@ -11,7 +11,7 @@ jobs:
     name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
@@ -24,6 +24,11 @@ jobs:
       run: php -v
     - name: Composer install
       run: composer install --optimize-autoloader --prefer-dist
+    - name: Install MySQL
+      uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: '5.7'
+          root-password: root
     - name: Install WP Tests
       run: bash bin/install-wp-tests.sh wordpress_test root root localhost latest
     - name: phpunit tests
