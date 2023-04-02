@@ -1,24 +1,30 @@
 name: Testing WP-GitHub-Card
-on:
-  push:
-    branches:
-        - master
-  pull_request:
-  repository_dispatch:
+on: [push]
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    timeout-minutes: 60
+  run:    
+    runs-on: ${{ matrix.operating-system }}
+    strategy:      
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.4']
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-      - name: Setup WP
-        run: bash ./bin/install-wp-tests.sh wordpress_test root ''
-        shell: bash
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          tools: phpunit
-      - name: Run PHPUnit
-        run: phpunit
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extension-csv: mbstring, intl #optional, setup extensions
+        ini-values-csv: post_max_size=256M, short_open_tag=On #optional, setup php.ini configuration
+        coverage: xdebug #optional, setup coverage driver
+        pecl: false #optional, setup PECL
+    - name: Check PHP Version
+      run: php -v
+    - name: Composer install
+      run: composer install --optimize-autoloader --prefer-dist
+    - name: Install WP Tests
+      run: bash bin/install-wp-tests.sh wordpress_test root root localhost latest
+    - name: phpunit tests
+      run: ./vendor/bin/phpunit
