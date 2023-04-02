@@ -1,6 +1,6 @@
 {
     "name": "wellflat/wp-github-card",
-    "version": "1.0.1",
+    "version": "2.2.0",
     "description": "WordPress plugin to show a small GitHub profile summary card",
     "type": "wordpress-plugin",
     "license": "GPLv2 or later",
@@ -13,7 +13,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0",
-        "mockery/mockery": "dev-master@dev"
+        "mockery/mockery": "dev-master@dev",
+        "yoast/phpunit-polyfills": "1.0.3"
     },
     "scripts": {
         "test": "./vendor/bin/phpunit"
