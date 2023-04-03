@@ -1,4 +1,4 @@
-## WP GitHub Card  [![Build Status](https://travis-ci.org/wellflat/wp-github-card.svg?branch=master)](https://travis-ci.org/wellflat/wp-github-card)
+## WP GitHub Card  ![build status](https://github.com/wellflat/wp-github-card/actions/workflows/deploy.yml/badge.svg)
 
 ![screenshot](https://ps.w.org/wp-github-card/trunk/screenshot-1.png)	
 
