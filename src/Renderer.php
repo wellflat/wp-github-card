@@ -18,13 +18,13 @@ final class Renderer {
 
 	public function __construct() {
 		$this->base_dir = plugin_dir_path(__FILE__) . '/../public';
-		$loader = new \Twig_Loader_Filesystem();
+		$loader = new \Twig\Loader\FilesystemLoader();
 		$loader->addPath( $this->base_dir );
 		$params = [
 			'debug' => false,
 			'auto_reload' => true
 		];
-		$this->twig = new \Twig_Environment( $loader, $params );
+		$this->twig = new \Twig\Environment( $loader, $params );
 	}
 
 	/**
@@ -34,7 +34,7 @@ final class Renderer {
 	 * @return string
 	 */
 	public function render( string $template_file, array $params ): string {
-		$template = $this->twig->loadTemplate( $template_file );
+		$template = $this->twig->load( $template_file );
 		return $template->render( $params );
 	}
 
