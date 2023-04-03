@@ -8,7 +8,8 @@ jobs:
       matrix:
         operating-system: [ubuntu-latest]
         php-versions: ['7.4', '8.0', '8.2']
-    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+        wp-versions: ['5.9', 'latest']
+    name: PHP ${{ matrix.php-versions }} WP ${{ matrix.wp-versions }} Test on ${{ matrix.operating-system }}
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -30,6 +31,6 @@ jobs:
         mysql-version: '5.7'
         root-password: ''
     - name: Install WP Tests
-      run: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 latest
+      run: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 ${{ wp-versions }}
     - name: Run Unit Tests by phpunit
       run: ./vendor/bin/phpunit --testdox
