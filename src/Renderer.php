@@ -11,8 +11,8 @@ namespace WP\GitHub;
  */
 final class Renderer {
 
-	/** @var \Twig_Environment */
-	private \Twig_Environment $twig;
+	/** @var \Twig\Environment */
+	private \Twig\Environment $twig;
 	/** @var string */
 	private string $base_dir;
 
