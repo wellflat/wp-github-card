@@ -3,7 +3,7 @@
     "version": "2.2.0",
     "description": "WordPress plugin to show a small GitHub profile summary card",
     "type": "wordpress-plugin",
-    "license": "GPLv2 or later",
+    "license": "GPLv2",
     "require": {
         "php": ">=7.4",
         "twig/twig": "^2.0"
