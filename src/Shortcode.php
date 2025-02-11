@@ -11,13 +11,12 @@ final class Shortcode {
 	const CODE = 'github-card';
 
 	/** @var WP\GitHub\Renderer */
-	private Renderer $renderer;
+	private readonly Renderer $renderer;
 	/** @var WP\GitHub\Service */
-	private Service $service;
+	private readonly Service $service;
 
 	public function __construct() {
 		$this->renderer = new Renderer();
-		$this->service = new Service();
 		add_shortcode( self::CODE, [ $this, 'handler' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'add_style' ] );
 	}
@@ -33,8 +32,7 @@ final class Shortcode {
 			'token' => null
 		];
 		$params = shortcode_atts( $defaults, $atts );
-		$this->service->user = $params['user'];
-		$this->service->token = $params['token'];
+		$this->service = new Service( $params['user'], $params['token'] );
 		$user = $this->service->get_user();
 		$repos = $this->service->get_repos();
 		$params = array_merge( $params, (array)$user );

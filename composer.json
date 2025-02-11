@@ -1,11 +1,11 @@
 {
     "name": "wellflat/wp-github-card",
-    "version": "2.2.0",
+    "version": "2.4.0",
     "description": "WordPress plugin to show a small GitHub profile summary card",
     "type": "wordpress-plugin",
     "license": "GPLv2",
     "require": {
-        "php": ">=7.4",
+        "php": ">=8.2",
         "twig/twig": "^3.0"
     },
     "autoload": {

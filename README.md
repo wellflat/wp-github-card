@@ -1,4 +1,4 @@
-## WP GitHub Card  ![build status](https://github.com/wellflat/wp-github-card/actions/workflows/main.yml/badge.svg)
+## WP GitHub Card 
 
 ![screenshot](https://ps.w.org/wp-github-card/trunk/screenshot-1.png)	
 
@@ -6,9 +6,9 @@ Contributors: wellflat
 Donate link:  
 Tags: github, shortcode  
 Requires at least: 4.9.6  
-Tested up to: 6.6.1  
-Requires PHP: 7.4+  
-Stable tag: 2.3.1  
+Tested up to: 6.7.1  
+Requires PHP: 8.2+  
+Stable tag: 2.4.0  
 License: GPLv2  
 License URI: http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -40,6 +40,9 @@ This plugin caches GitHub user profile data into the database (expires 4 hours).
 2. usage
 
 ### Changelog
+= 2.4.0 =
+* required php8.2 or later
+
 = 2.3.0 =
 * migrated twig v2 to 3
 

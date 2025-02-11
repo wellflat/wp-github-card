@@ -14,11 +14,11 @@ final class Service {
 	private const CACHE_EXPIRED = 4*HOUR_IN_SECONDS;
 
 	/** @var string */
-	private ?string $user = null;
+	private readonly string $user;
 	/** @var string */
-	private ?string $token = null;
+	private readonly string $token;
 
-	public function __construct( ?string $user = null, ?string $token = null ) {
+	public function __construct( string $user, ?string $token = null ) {
 		$this->user = $user;
 		$this->token = $token;
 	}

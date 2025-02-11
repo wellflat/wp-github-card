@@ -8,19 +8,19 @@ namespace WP\GitHub;
  * @package WP_GitHub_Card 
  * @since 1.0.0
  */
-final class User {
+final readonly class User {
 	/** @var string */
-	public string $login = '';
+	public string $login;
 	/** @var string */
-	public string $avatar = '';
+	public string $avatar;
 	/** @var string */
-	public string $name = '';
+	public string $name;
 	/** @var int */
-	public int $public_repos = 0;
+	public int $public_repos;
 	/** @var int */
-	public int $public_gists = 0;
+	public int $public_gists;
 	/** @var int */
-	public int $followers = 0;
+	public int $followers;
 
 	public function __construct( \stdClass $data = null ) {
 		if ( ! is_null( $data ) ) {
